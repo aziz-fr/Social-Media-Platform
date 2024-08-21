@@ -1,0 +1,73 @@
+<!-- <section style="background-color: #eee">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <app-navbar></app-navbar>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 100px">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+              alt="avatar"
+              class="rounded-circle img-fluid"
+              style="width: 150px"
+            />
+            <h5 class="my-3">{{ username }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7" style="margin-left: 60px">
+        <app-post></app-post>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="margin-left: 300px">
+          <app-tweet-by-user></app-tweet-by-user>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section style="background-color: lightcoral">
+  <div class="container py-5">
+    <!-- Navbar -->
+    <div class="row mb-5">
+      <div class="col">
+        <app-navbar></app-navbar>
+      </div>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="row">
+      <!-- Profile Card -->
+      <div class="col-lg-4">
+        <div class="card mb-4" style="background-color: #36454f;">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px" />
+            <h5 class="my-3" style="color: aliceblue;">@{{ username }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Section -->
+      <div class="col-md-7">
+        <app-post></app-post>
+      </div>
+    </div>
+
+    <!-- Tweets Section -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h2 class="mb-4">Your Tweets</h2>
+        <app-tweet-by-user></app-tweet-by-user>
+      </div>
+    </div>
+  </div>
+</section>

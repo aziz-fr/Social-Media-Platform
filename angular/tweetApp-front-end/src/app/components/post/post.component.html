@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="wrapper">
+
+
+<div class="col-md-9 float-right"> 
+<form [formGroup]="postForm" (submit)="onPostHandler()">
+    <div class="form-group">
+        <label >Tell the world what are you thinking!</label>
+        <textarea 
+                class="form-control" 
+                rows="8" 
+                formControlName="content" 
+                [class.is-invalid]="content?.invalid && content?.touched"
+                ></textarea>
+        <div *ngIf="content?.errors && content?.touched">
+            <small class="text-danger" *ngIf="content?.errors?.['maxlength']">post can not be more than 144 characters</small>
+            </div>
+
+    
+    </div>
+    <input type="submit"
+           value="post"
+           class="btn btn-primary"
+           [disabled]="postForm.invalid">
+</form>
+</div>
+</div>
+</div>
+

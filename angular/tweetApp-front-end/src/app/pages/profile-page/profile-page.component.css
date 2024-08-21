@@ -1,0 +1,28 @@
+.card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+  }
+  
+  .mb-5 {
+    margin-bottom: 3rem !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 2rem !important;
+  }
+  
+  .mt-5 {
+    margin-top: 3rem !important;
+  }
+  
+  .text-center {
+    text-align: center !important;
+  }

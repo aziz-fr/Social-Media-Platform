@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <div class="col-sm-12" *ngFor="let tweet of tweets" style="margin-top: 20px">
+    <div class="card" style="margin-top: 40px">
+      <div class="card-header">
+        <p class="text-right text-muted">
+          date posted:{{ tweet.date | date : "short" }}
+        </p>
+      </div>
+
+      <div class="card-body">
+        <div *ngFor="let user of users">
+        <h5 class="card-title"  *ngIf="tweet.userId==user.id">@{{ user.username }}</h5>
+      </div>
+        <p class="card-text">{{ tweet.content }}</p>
+
+        <!-- ------------------------------- -->
+
+        <!-- -------------------------------- -->
+
+      </div>
+
+      <!-- reply section -->
+      <div class="tweet-actions">
+        <button class="btn-reply" (click)="toggleReply(tweet)">Reply</button>
+        <button class="btn btn-primary">Like</button>
+      </div>
+
+      <div class="reply-section" *ngIf="tweet.showReplySection">
+        <textarea
+              class="reply-textarea"
+              placeholder="Write your reply here"
+              [(ngModel)]="tweet.replyText">
+        </textarea>
+        <button class="reply-button" (click)="submitReply(tweet)">Submit</button>
+      </div>
+
+      <div class="replies" *ngIf="replies.length > 0">
+        <div class="reply" *ngFor="let reply of replies">
+          <div class="reply-content" *ngIf="tweet.id==reply.tweetId">
+            <p><strong>{{ username }}</strong>: {{ reply.content }}</p>
+            <small class="text-muted">{{ reply.date | date : "short" }}</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="card-footer text-muted">
+        <a href="#" class="btn btn-primary">Reply</a>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+

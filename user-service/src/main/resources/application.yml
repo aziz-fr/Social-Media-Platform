@@ -1,0 +1,21 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: USER-SERVICE
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/userdb
+    username: root
+    password: groot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+app:
+  jwt-secret: e53ba88f8d375b85b8715dd633ce6f0816870666b6114e9b8d320863925fa562
+  jwt-expiration-milliseconds: 604800L

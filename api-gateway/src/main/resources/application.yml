@@ -1,0 +1,59 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/v1.0/users/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: USER-SERVICE
+                fallbackuri: forward:/userServiceFallBack
+        - id: TWEET-SERVICE
+          uri: lb://TWEET-SERVICE
+          predicates:
+            - Path=/api/v1.0/tweets/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: TWEET-SERVICE
+                fallbackuri: forward:/tweetServiceFallBack
+        - id: REPLY-SERVICE
+          uri: lb://REPLY-SERVICE
+          predicates:
+            - Path=/api/v1.0/reply/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: REPLY-SERVICE
+                fallbackuri: forward:/replyServiceFallBack
+        - id: TAG-SERVICE
+          uri: lb://TAG-SERVICE
+          predicates:
+            - Path=/api/v1.0/tags/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: TAG-SERVICE
+                fallbackuri: forward:/tagServiceFallBack
+        - id: LIKE-SERVICE
+          uri: lb://LIKE-SERVICE
+          predicates:
+            - Path=/api/v1.0/like/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: LIKE-SERVICE
+                fallbackuri: forward:/likeServiceFallBack
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
